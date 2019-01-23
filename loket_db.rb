@@ -54,7 +54,7 @@ class LoketDb
     end
   end
   def csv_parse_options
-    { headers: :first_row, return_headers: true, encoding: 'UTF-8' }
+    { headers: :first_row, return_headers: true, encoding: 'UTF-8', col_sep: ';' }
   end
 
   def read_csv(file)
