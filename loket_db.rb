@@ -112,8 +112,8 @@ class LoketDb
     graph = RDF::Repository.new
     graph << [ message, RDF.type, SCHEMA.Message]
     graph << [ message, MU.uuid, uuid]
-    graph << [ message, SCHEMA.dateSent, dateSent] if dateSent
-    graph << [ message, SCHEMA.dateReceived, dateReceived] if dateReceived
+    graph << [ message, SCHEMA.dateSent, RDF::Literal::DateTime.new(dateSent)] if dateSent
+    graph << [ message, SCHEMA.dateReceived, RDF::Literal::DateTime.new(dateReceived)] if dateReceived
     graph << [ message, SCHEMA.recipient, recipient] if recipient
     graph << [ message, SCHEMA.sender, sender] if sender
     graph << [ conversatie, SCHEMA.author, author ] if author
